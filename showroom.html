@@ -1,0 +1,271 @@
+<html>
+    <head>
+        <title>Beispiel eines Showrooms</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.refresh-site').click(function(){
+                    console.log($(this).val());
+                    if($(this).val() == 'Refresh ON'){
+
+                        $(this).val('Refresh OFF');
+                        $(this).html('Refresh OFF');
+                        document.cookie = "site_refresh=1";
+                        cache_clear()
+
+                    }else{
+                        document.cookie = "site_refresh=0"; 
+                        $(this).val('Refresh ON');
+                        $(this).html('Refresh ON');
+                        cache_clear()
+                    }
+                });
+                function init(){
+                    if(getCookie('site_refresh') == '1' ){
+                        $('.refresh-site').val('Refresh OFF');
+                        $('.refresh-site').html('Refresh OFF');
+
+                        setInterval(function() {
+                                cache_clear()
+                        }, 1000);
+                    }
+                }
+                init();
+                $(window).on('scroll', function () {
+                    var pos = $(window).scrollTop();
+                    var pos2 = pos + 0;
+                    var scrollBottom = pos + $(window).height();
+
+                    // Link Highlighting
+                    if (pos2 > $('.waypoint').offset().top) { onScrollInit( $('.waypoint')) }
+                });
+
+                    // SCROLL ANIMATIONS
+                    function onScrollInit( items, elemTrigger ) {
+                        console.log('Funktion aktiviert');
+                        var offset = $(window).height() / 1.6
+                        items.each( function() {
+                            var elem = $(this),
+                                animationClass = elem.attr('data-animations'),
+                                animationDelay = elem.attr('data-delay');
+                                elem.css({
+                                    '-webkit-animation-delay':  animationDelay,
+                                    '-moz-animation-delay':     animationDelay,
+                                    'animation-delay':          animationDelay
+                                });
+                                var trigger = (elemTrigger) ? trigger : elem;
+                                elem.addClass('animated').addClass(animationClass);
+                                if (elem.get(0).id === 'gallery') mixClear(); //OPTIONAL
+                        });
+                    }    
+            });
+            function cache_clear() {
+                window.location.reload(true);
+            }
+            function getCookie(cname) {
+                var name = cname + "=";
+                var ca = document.cookie.split(';');
+                for(var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                    c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                    return c.substring(name.length, c.length);
+                    }
+                }
+            return "";
+            }
+        </script>
+
+
+        <style type="text/css">
+            body{
+                color:#000;
+                font-family: 'Raleway';
+                margin: 0px;
+                font-size: 1em;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                overflow-x: hidden;
+            }
+            .shr-row{
+                max-width: 1180px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+            .shr-container{
+                margin: 10px auto;
+            }
+            .shr-flex{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                flex-wrap: wrap;
+            }
+            .showroom-project{
+                display: inline-block;
+                position: relative;
+            }
+            .showroom-navigation{
+                width:100%;
+                text-align: center;
+                margin-bottom: 50px;
+            }
+            .showrrom-thumbnail-image{
+                background: url('assets/img/no-images-380-300.png') center center/cover;
+                width:390px;
+                height:300px;
+                cursor: pointer;
+                transition: opacity .5s;
+                max-width: 100%;
+                opacity: 1;
+                z-index: 0;
+            }
+            .showrrom-thumbnail-image:hover{
+                opacity: 0.8;
+            }
+
+            .projects-container{
+                position: absolute;
+                top:0;
+                text-align: center;
+                z-index: 99;
+                left: 0;
+                width: 100%;
+                background-color: #000;
+                opacity: 0;
+                transition: all 0.3s ease-in-out;
+                height:100%;
+            }
+            .projects-container:hover{
+                opacity: 0.8;
+            }
+            .showroom-project-description p{
+                font-size:2em;
+                text-align: center;
+                color: #1B242F;
+                padding:0px;
+                padding-top:20%;
+            }
+            .showroom-project-sub-description p{
+                font-size:1.4em;
+                text-align: center;
+                color: #E31B6D;
+                padding:0px;
+
+            }
+
+        </style>
+    </head>
+    <body>
+    <button class="refresh-site" value="Refresh ON" type="button">Refresh ON</button>
+    <div class="shr-row shr-container" style="font-size:1em; color:rgb(163, 185, 210);">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+
+        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+        
+        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
+        
+        Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.   
+        
+        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.   
+        
+        At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.   
+        
+        Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.   
+        
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+        
+        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+        
+        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
+        
+        Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.
+    </div>
+        <div class="showroom shr-row shr-container">
+                <div class="showroom-navigation" data-animations="fadeIn">
+                    <div class="showroom-projects">
+                        <a href="#" alt="Projekt 1">Projekt 1</a>
+                        <a href="#" alt="Projekt 2">Projekt 2</a>
+                        <a href="#" alt="Projekt 3">Projekt 3</a>
+                    </div>
+                </div>
+                <div class="showroom-projetcs shr-flex">
+                    <div class="showroom-project">
+                        <div class="waypoint showrrom-thumbnail-image" data-animations="zoomIn">
+                            <div class="projects-container">
+                                <div class="showroom-project-description"><p>Test Projekt</p></div>
+                                <div class="showroom-project-sub-description"><p>JS + HTML</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showroom-project">
+                        <div class="waypoint showrrom-thumbnail-image" data-animations="zoomIn">
+                            <div class="projects-container">
+                                <div class="showroom-project-description"><p>Test Projekt</p></div>
+                                <div class="showroom-project-sub-description"><p>JS + HTML</p></div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="showroom-project">
+                        <div class="waypoint showrrom-thumbnail-image" data-animations="zoomIn">
+                            <div class="projects-container">
+                                <div class="showroom-project-description"><p>Test Projekt</p></div>
+                                <div class="showroom-project-sub-description"><p>JS + HTML</p></div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="showroom-project">
+                        <div class="waypoint showrrom-thumbnail-image" data-animations="zoomIn">
+                            <div class="projects-container">
+                                <div class="showroom-project-description"><p>Test Projekt</p></div>
+                                <div class="showroom-project-sub-description"><p>JS + HTML</p></div>
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="showroom-project">
+                        <div class="waypoint showrrom-thumbnail-image" data-animations="zoomIn">
+                            <div class="projects-container">
+                                <div class="showroom-project-description"><p>Test Projekt</p></div>
+                                <div class="showroom-project-sub-description"><p>JS + HTML</p></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="showroom-project">
+                        <div class="waypoint showrrom-thumbnail-image" data-animations="zoomIn">
+                            <div class="projects-container">
+                                <div class="showroom-project-description"><p>Test Projekt</p></div>
+                                <div class="showroom-project-sub-description"><p>JS + HTML</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="shr-row shr-container" style="font-size:1em; color:rgb(163, 185, 210);">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+            
+            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
+            
+            Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.   
+            
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.   
+            
+            At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, At accusam aliquyam diam diam dolore dolores duo eirmod eos erat, et nonumy sed tempor et et invidunt justo labore Stet clita ea et gubergren, kasd magna no rebum. sanctus sea sed takimata ut vero voluptua. est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat.   
+            
+            Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus.   
+            
+            Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
+            
+            Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
+            
+            Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.   
+            
+            Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.
+        </div>
+
+    </body>
+</html>
