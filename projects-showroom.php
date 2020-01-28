@@ -38,8 +38,11 @@ define('PSR_PATH', plugin_dir_path(__FILE__));
 /* Loads plugin's text domain. */
 add_action( 'init', 'psr_load_plugin_textdomain' );
 
-/* Shortcode */
+/* Admin Scripts */
 require_once('inc/psr-admin.php');
+
+/* Types */
+require_once('inc/psr-types.php');
 
 /* Shortcode */
 require_once('inc/psr-shortcode.php');
