@@ -26,8 +26,8 @@
 **/
 
 //Definie plugin version
-if (!defined('UEBNS_VERSION'))
-    define('UEBNS_VERSION', '0.0.1');
+if (!defined('PSR_VERSION'))
+    define('PSR_VERSION', '0.0.1');
 
 /**
  * Define path
@@ -37,6 +37,12 @@ define('PSR_PATH', plugin_dir_path(__FILE__));
 /* General */
 /* Loads plugin's text domain. */
 add_action( 'init', 'psr_load_plugin_textdomain' );
+
+/* Shortcode */
+require_once('inc/psr-admin.php');
+
+/* Shortcode */
+require_once('inc/psr-shortcode.php');
 
 
 /**
