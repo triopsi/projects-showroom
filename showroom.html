@@ -1,94 +1,54 @@
-<html>
+<!doctype html>
+<html lang="en">
     <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Beispiel eines Showrooms</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-        <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+        <script src="https://code.jquery.com/jquery-3.2.0.js" integrity="sha256-wPFJNIFlVY49B+CuAIrDr932XSb6Jk3J1M22M3E2ylQ=" crossorigin="anonymous"></script>
+
         <script>
             $(document).ready(function() {
-                $('.refresh-site').click(function(){
-                    console.log($(this).val());
-                    if($(this).val() == 'Refresh ON'){
-
-                        $(this).val('Refresh OFF');
-                        $(this).html('Refresh OFF');
-                        document.cookie = "site_refresh=1";
-                        cache_clear()
-
-                    }else{
-                        document.cookie = "site_refresh=0"; 
-                        $(this).val('Refresh ON');
-                        $(this).html('Refresh ON');
-                        cache_clear()
+                    function showProject(e){
+                        var projectname = e.attr('psr-data');
+                        var selectorsearch = '.'+projectname;
+                        if( projectname != 'all' ){
+                            $( '.showroom-projetcs' ).find( selectorsearch ).fadeIn( 800 );
+                            $( '.showroom-project' ).not( selectorsearch ).fadeOut( 400 );
+                        }else{
+                            $( '.showroom-project' ).fadeIn( 800 );
+                        }
                     }
+
+                    $('.psr-nav').click(function(e){
+                        if( $(this).hasClass( 'active' )){
+                        }else{
+                            $(this).closest( '.showroom-projects' ).find( '.active' ).removeClass( 'active' );
+                            $(this).addClass( 'active' );
+                            showProject( $(this) );
+                        }
+
+                    });
                 });
-                function init(){
-                    if(getCookie('site_refresh') == '1' ){
-                        $('.refresh-site').val('Refresh OFF');
-                        $('.refresh-site').html('Refresh OFF');
-
-                        setInterval(function() {
-                                cache_clear()
-                        }, 1000);
-                    }
-                }
-                init();
-                $(window).on('scroll', function () {
-                    var pos = $(window).scrollTop();
-                    var pos2 = pos + 0;
-                    var scrollBottom = pos + $(window).height();
-
-                    // Link Highlighting
-                    if (pos2 > $('.waypoint').offset().top) { onScrollInit( $('.waypoint')) }
-                });
-
-                    // SCROLL ANIMATIONS
-                    function onScrollInit( items, elemTrigger ) {
-                        console.log('Funktion aktiviert');
-                        var offset = $(window).height() / 1.6
-                        items.each( function() {
-                            var elem = $(this),
-                                animationClass = elem.attr('data-animations'),
-                                animationDelay = elem.attr('data-delay');
-                                elem.css({
-                                    '-webkit-animation-delay':  animationDelay,
-                                    '-moz-animation-delay':     animationDelay,
-                                    'animation-delay':          animationDelay
-                                });
-                                var trigger = (elemTrigger) ? trigger : elem;
-                                elem.addClass('animated').addClass(animationClass);
-                                if (elem.get(0).id === 'gallery') mixClear(); //OPTIONAL
-                        });
-                    }    
-            });
-            function cache_clear() {
-                window.location.reload(true);
-            }
-            function getCookie(cname) {
-                var name = cname + "=";
-                var ca = document.cookie.split(';');
-                for(var i = 0; i < ca.length; i++) {
-                    var c = ca[i];
-                    while (c.charAt(0) == ' ') {
-                    c = c.substring(1);
-                    }
-                    if (c.indexOf(name) == 0) {
-                    return c.substring(name.length, c.length);
-                    }
-                }
-            return "";
-            }
         </script>
-
 
         <style type="text/css">
             body{
                 color:#000;
-                font-family: 'Raleway';
                 margin: 0px;
                 font-size: 1em;
                 -webkit-font-smoothing: antialiased;
                 -moz-osx-font-smoothing: grayscale;
                 overflow-x: hidden;
+            }
+            /*---------------------------------------
+            * Plugin Projects Showroom
+            *---------------------------------------*/
+            .showroom{
+                margin: 80px 0;
+                position: relative;
             }
             .shr-row{
                 max-width: 1180px;
@@ -113,8 +73,33 @@
             .showroom-navigation{
                 width:100%;
                 text-align: center;
-                margin-bottom: 50px;
+                margin-bottom: 1em;
+                padding: 5px;
+                font-size: 1.2em;
+
             }
+
+            .psr-nav {
+                color: #616161;
+                transition: ease 0.5s;
+                padding: 0 25px;
+                font-size: 1.2em;
+                text-transform: uppercase;
+                display: inline;
+                margin-right: 15px;
+                cursor: pointer;
+            }
+
+            .psr-nav.active{
+                background-color: #E31B6D;
+                color:#fff; 
+            }
+
+            .psr-nav:hover{
+                color:#E31B6D;
+                background-color: #1B242F;
+            }
+
             .showrrom-thumbnail-image{
                 background: url('assets/img/no-images-380-300.png') center center/cover;
                 width:390px;
@@ -126,7 +111,7 @@
                 z-index: 0;
             }
             .showrrom-thumbnail-image:hover{
-                opacity: 0.8;
+                opacity: 1;
             }
 
             .projects-container{
@@ -138,7 +123,7 @@
                 width: 100%;
                 background-color: #000;
                 opacity: 0;
-                transition: all 0.3s ease-in-out;
+                transition: all 0.5s ease-in-out;
                 height:100%;
             }
             .projects-container:hover{
@@ -147,7 +132,7 @@
             .showroom-project-description p{
                 font-size:2em;
                 text-align: center;
-                color: #1B242F;
+                color: #fff;
                 padding:0px;
                 padding-top:20%;
             }
@@ -158,11 +143,19 @@
                 padding:0px;
 
             }
-
+            .showroom-project-sub-sub-description p a{
+                font-size:0.9em;
+                text-align: center;
+                color: #E31B6D;
+                padding:0px;
+            }
+            .showroom-project-sub-sub-description p a:hover{
+                color: #1B242F;
+                text-decoration: none;
+            }
         </style>
     </head>
     <body>
-    <button class="refresh-site" value="Refresh ON" type="button">Refresh ON</button>
     <div class="shr-row shr-container" style="font-size:1em; color:rgb(163, 185, 210);">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.   
 
         Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.   
@@ -186,59 +179,66 @@
         Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.
     </div>
         <div class="showroom shr-row shr-container">
-                <div class="showroom-navigation" data-animations="fadeIn">
+                <div class="showroom-navigation">
                     <div class="showroom-projects">
-                        <a href="#" alt="Projekt 1">Projekt 1</a>
-                        <a href="#" alt="Projekt 2">Projekt 2</a>
-                        <a href="#" alt="Projekt 3">Projekt 3</a>
+                        <div class="psr-all-show-button psr-nav active" psr-data="all">All</div>
+                        <div class="psr-pr1-show-button psr-nav" psr-data="zip">zip</div>
+                        <div class="psr-pr2-show-button psr-nav" psr-data="js">js</div>
+                        <div class="psr-pr2-show-button psr-nav" psr-data="lib">lib</div>
                     </div>
                 </div>
                 <div class="showroom-projetcs shr-flex">
-                    <div class="showroom-project">
-                        <div class="waypoint showrrom-thumbnail-image" data-animations="zoomIn">
+                    <div class="showroom-project zip">
+                        <div class="showrrom-thumbnail-image" style="background: url('assets/img/thumb-5.jpg') center center/cover;">
                             <div class="projects-container">
                                 <div class="showroom-project-description"><p>Test Projekt</p></div>
                                 <div class="showroom-project-sub-description"><p>JS + HTML</p></div>
+                                <div class="showroom-project-sub-sub-description"><p><a target="_blank" href="#">More information</a></p></div>
                             </div>
                         </div>
                     </div>
-                    <div class="showroom-project">
-                        <div class="waypoint showrrom-thumbnail-image" data-animations="zoomIn">
+                    <div class="showroom-project zip">
+                        <div class="showrrom-thumbnail-image" style="background: url('assets/img/thumb-4.jpg') center center/cover;">
                             <div class="projects-container">
                                 <div class="showroom-project-description"><p>Test Projekt</p></div>
                                 <div class="showroom-project-sub-description"><p>JS + HTML</p></div>
+                                <div class="showroom-project-sub-sub-description"><p><a target="_blank" href="#">More information</a></p></div>
                             </div>
                         </div>
                     </div> 
-                    <div class="showroom-project">
-                        <div class="waypoint showrrom-thumbnail-image" data-animations="zoomIn">
+                    <div class="showroom-project js">
+                        <div class="showrrom-thumbnail-image" style="background: url('assets/img/thumb-6.jpg') center center/cover;">
                             <div class="projects-container">
                                 <div class="showroom-project-description"><p>Test Projekt</p></div>
                                 <div class="showroom-project-sub-description"><p>JS + HTML</p></div>
+                                <div class="showroom-project-sub-sub-description"><p><a target="_blank" href="#">More information</a></p></div>
                             </div>
                         </div>
                     </div> 
-                    <div class="showroom-project">
-                        <div class="waypoint showrrom-thumbnail-image" data-animations="zoomIn">
+                    <div class="showroom-project zip">
+                        <div class="showrrom-thumbnail-image" style="background: url('assets/img/thumb-7.jpg') center center/cover;">
                             <div class="projects-container">
                                 <div class="showroom-project-description"><p>Test Projekt</p></div>
                                 <div class="showroom-project-sub-description"><p>JS + HTML</p></div>
+                                <div class="showroom-project-sub-sub-description"><p><a target="_blank" href="#">More information</a></p></div>
                             </div>
                         </div>
                     </div> 
-                    <div class="showroom-project">
-                        <div class="waypoint showrrom-thumbnail-image" data-animations="zoomIn">
+                    <div class="showroom-project js">
+                        <div class="showrrom-thumbnail-image" style="background: url('assets/img/thumb-8.jpg') center center/cover;">
                             <div class="projects-container">
                                 <div class="showroom-project-description"><p>Test Projekt</p></div>
                                 <div class="showroom-project-sub-description"><p>JS + HTML</p></div>
+                                <div class="showroom-project-sub-sub-description"><p><a target="_blank" href="#">More information</a></p></div>
                             </div>
                         </div>
                     </div>
-                    <div class="showroom-project">
-                        <div class="waypoint showrrom-thumbnail-image" data-animations="zoomIn">
+                    <div class="showroom-project lib">
+                        <div class="showrrom-thumbnail-image" style="background: url('assets/img/thumb-9.jpg') center center/cover;">
                             <div class="projects-container">
                                 <div class="showroom-project-description"><p>Test Projekt</p></div>
                                 <div class="showroom-project-sub-description"><p>JS + HTML</p></div>
+                                <div class="showroom-project-sub-sub-description"><p><a target="_blank" href="#">More information</a></p></div>
                             </div>
                         </div>
                     </div>
@@ -266,6 +266,10 @@
             
             Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo.
         </div>
-
+  <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
     </body>
 </html>
