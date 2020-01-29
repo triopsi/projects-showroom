@@ -87,7 +87,7 @@ function register_psr_taxonomy() {
 		'add_or_remove_items'        	=> __( 'Add or remove category', 'psr' ),
         'choose_from_most_used'      	=> __( 'Choose from the most used categories', 'psr' ),
         'not_found'                  	=> __( 'No category found.', 'psr' ),
-		'menu_name'         			=> __( 'Project Category', 'psr' ),
+		'menu_name'         			=> __( 'Projects Category', 'psr' ),
 	);
 	
     $args = array(

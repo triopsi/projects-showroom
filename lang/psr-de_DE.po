@@ -1,0 +1,307 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Projetcs Showroom\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-01-29 16:56+0100\n"
+"PO-Revision-Date: 2020-01-29 18:04+0100\n"
+"Language-Team: triopsi <info@triopsi.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: de_DE\n"
+
+msgid "A very simple showroom for your projects. Create projects and copy-paste the shortcode everywhere in your post or site."
+msgstr "Zeige deine Projekte in einem extra dafür erstelltem Showroom vor. Einfaches copy-paste des Shortcodes in Beiträgen oder Seiten."
+
+#: inc/psr-admin.php:58
+msgid "please set a project name"
+msgstr "Bitte gebe ein Projekt Titel ein"
+
+#: inc/psr-admin.php:59
+msgid "please set a featured image!"
+msgstr "Bitte setze ein Beitragsbild fest!"
+
+#: inc/psr-help.php:30
+msgid "How It Works"
+msgstr ""
+
+#: inc/psr-help.php:31 inc/psr-settings.php:150
+msgid "Help"
+msgstr "Hilfe"
+
+#: inc/psr-help.php:54
+msgid "How It Works - Display and shortcode"
+msgstr ""
+
+#: inc/psr-help.php:62
+msgid "Geeting Started with projects showroom"
+msgstr "Lasst uns beginnen"
+
+#: inc/psr-help.php:66
+msgid "Step 1. Go to \"All Projects --> Add New\"."
+msgstr "Schritt 1: Gehe zu \"Alle Projekte --> Projekt hinzufügen\"."
+
+#: inc/psr-help.php:67
+msgid "Step 2. Add project title, project link and a project image under featured image section."
+msgstr "Schritt 2: Füge Projekt Titel, ein Projekt Link und ein Projektbild ein."
+
+#: inc/psr-help.php:68
+msgid "Step 3. Display multiple projects showcase, create categories under \"Projects --> Projects Category\" and create categories."
+msgstr ""
+"Schritt 3: Um die Menü Funktion zu benutzen, füge Kategorien hinzu. Gehe zu \"Projekte --> Projektkategorien\" und erstelle neue "
+"Kategorien."
+
+#: inc/psr-help.php:69
+msgid "Step 4. Copy-paste the shortcode <span class=\"psr-shortcode-preview\">[psr]</span> anywhere in your post or site."
+msgstr "Schritt 4: Kopiere und füge den Shortcode <span class=\"psr-shortcode-preview\">[psr]</span> in deinem Post oder Seite ein."
+
+#: inc/psr-help.php:76
+msgid "All Shortcodes"
+msgstr "Alle SHortcodes"
+
+#: inc/psr-help.php:79
+msgid "Project Showroom Shortcode. Show all projects and show the menue bar"
+msgstr "Projekt Showroom Shortcode. Zeige alle Projekte mit einem Menü."
+
+#: inc/psr-help.php:80
+msgid "show projects from a category"
+msgstr "Zeige alle Projekte von einer Kategorie"
+
+#: inc/psr-help.php:81
+msgid "show a project in a showcase"
+msgstr "Zeige ein Projekt"
+
+#: inc/psr-help.php:87
+msgid "All Shortcodes parameters"
+msgstr "Alle Shortcode Parameter"
+
+#: inc/psr-help.php:90
+msgid "Project link target. Value=_self or _blank, Default=_self"
+msgstr "Projekt Link Ziel. Value=_self or _blank, Standardmäßig=_self"
+
+#: inc/psr-help.php:91
+msgid "Show the project titel in the showcase. Value=true or false, Default=true"
+msgstr "Zeige die Überschrift des Projektes an. Value=true or false, Standardmäßig=true"
+
+#: inc/psr-help.php:92
+msgid "orderby the atribute of projects Value=date, ID, title, name or rand, Default=date"
+msgstr "Sortiere Projekte nach Eigenschaft. Value=date, ID, title, name or rand, Standardmäßig=date"
+
+#: inc/psr-help.php:93
+msgid "sort the project in ascending or descending order. Value=asc or desc, Default=ASC"
+msgstr "Sortiere die Projekte Auf oder Absteigend. Value=asc or desc, Standardmäßig=ASC"
+
+#: inc/psr-help.php:94
+msgid "show the menue bar. Value=true or false, Default=true"
+msgstr "Zeige das Menü.  Value=true or false, Standardmäßig=true"
+
+#: inc/psr-help.php:101
+msgid "Need Support?"
+msgstr "Brauchst du Support?"
+
+#: inc/psr-help.php:104
+msgid "Check plugin document for shortcode parameters."
+msgstr "Checke die Plugin Dokumentation für alle Shortcodes."
+
+#: inc/psr-help.php:105
+msgid "Documentation"
+msgstr "Dokumentation"
+
+#: inc/psr-help.php:106 inc/psr-settings.php:149
+msgid "Donate"
+msgstr "Spenden"
+
+#: inc/psr-post-metabox.php:27
+msgid "Projects details"
+msgstr "Projekt Details"
+
+#: inc/psr-post-metabox.php:57
+msgid "More information URL"
+msgstr "Mehr Informationen URL"
+
+#: inc/psr-post-metabox.php:59
+msgid "e.g. https://example.com"
+msgstr "z.B. https://example.com"
+
+#: inc/psr-settings.php:38
+msgid "Color shema"
+msgstr "Farbschema"
+
+#: inc/psr-settings.php:46
+msgid "Choose a main color:"
+msgstr "Wähle eine Hauptfarbe aus."
+
+#: inc/psr-settings.php:55
+msgid "Choose a main hover color:"
+msgstr "Wähle eine Hover Farbe aus. "
+
+#: inc/psr-settings.php:74
+msgid "This color will use for the Titel, Menue bar and description."
+msgstr "Diese Farbe wird für den Titel, das Menü und für die Beschreibung des Projektes benutzt."
+
+#: inc/psr-settings.php:111 inc/psr-settings.php:112
+msgid "Projects options"
+msgstr "Projekt optionen"
+
+#: inc/psr-settings.php:146
+msgid "Save Settings"
+msgstr "Einstellungen speichern"
+
+#: inc/psr-settings.php:155
+msgid "Debug information"
+msgstr ""
+
+#: inc/psr-settings.php:156
+msgid "You are seeing this becpsre your WP_DEBUG variable is set to true."
+msgstr ""
+
+#: inc/psr-shortcode.php:128
+msgctxt "psr"
+msgid "All"
+msgstr "Alle"
+
+#: inc/psr-shortcode.php:168
+msgctxt "psr"
+msgid "More information"
+msgstr "Mehr Informationen"
+
+#: inc/psr-types.php:34 inc/psr-types.php:35
+msgid "Projects"
+msgstr "Projekte"
+
+#: inc/psr-types.php:36
+msgid "Projects Showroom"
+msgstr "Projekt Showroom"
+
+#: inc/psr-types.php:37
+msgid "Add Project"
+msgstr "Projekt hinzufügen"
+
+#: inc/psr-types.php:38
+msgid "Add New Project"
+msgstr "Neues Projekt hinzufügen"
+
+#: inc/psr-types.php:39
+msgid "New Projects"
+msgstr "Neue Projekte"
+
+#: inc/psr-types.php:40
+msgid "Edit Project"
+msgstr "Projekt bearbeiten"
+
+#: inc/psr-types.php:41
+msgid "View Project"
+msgstr "Zeige Projekt"
+
+#: inc/psr-types.php:42
+msgid "All Projects"
+msgstr "Alle Projekte"
+
+#: inc/psr-types.php:43
+msgid "Search Projects"
+msgstr "Suche Projekte"
+
+#: inc/psr-types.php:44
+msgid "No Projects found."
+msgstr "Keine Projekte gefunden"
+
+#: inc/psr-types.php:45
+msgid "No Projects found in Trash."
+msgstr "Keine Projekte im Mülleimer gefunden."
+
+#: inc/psr-types.php:46 inc/psr-types.php:47
+msgid "Set logo image"
+msgstr "Projektbild setzen"
+
+#: inc/psr-types.php:48
+msgid "Remove logo image"
+msgstr "Projektbild löschen"
+
+#: inc/psr-types.php:76
+msgid "Categorie"
+msgstr "Kategorien"
+
+#: inc/psr-types.php:77
+msgid "Category"
+msgstr "Kategorie"
+
+#: inc/psr-types.php:78
+msgid "Search categorie"
+msgstr "Suche Kategorie"
+
+#: inc/psr-types.php:79
+msgid "All categorie"
+msgstr "Alle Kategorien"
+
+#: inc/psr-types.php:80
+msgid "Parent Category"
+msgstr "Eltern Kategorie"
+
+#: inc/psr-types.php:81
+msgid "Parent Category:"
+msgstr "Eltern Kategorien:"
+
+#: inc/psr-types.php:82
+msgid "Edit Category"
+msgstr "Bearbeite Kategorie"
+
+#: inc/psr-types.php:83
+msgid "Update Category"
+msgstr "Update Kategorie"
+
+#: inc/psr-types.php:84
+msgid "Add New Category"
+msgstr "Neue Kategorie hinzufügen"
+
+#: inc/psr-types.php:85
+msgid "New Category Name"
+msgstr "Neue Kategorie Namen"
+
+#: inc/psr-types.php:86
+msgid "Separate categories with commas"
+msgstr "Trenne Kategorien mit kommas"
+
+#: inc/psr-types.php:87
+msgid "Add or remove category"
+msgstr "Füge oder Lösche Kategorie"
+
+#: inc/psr-types.php:88
+msgid "Choose from the most used categories"
+msgstr "Wähle aus den meist benutzen Kategorien aus."
+
+#: inc/psr-types.php:89
+msgid "No category found."
+msgstr "Keine Kategorie gefunden."
+
+#: inc/psr-types.php:90
+msgid "Project Category"
+msgstr "Projekt Kategorie"
+
+#: inc/psr-types.php:119 inc/psr-types.php:120
+msgid "Project updated."
+msgstr "Projekt aktualisiert."
+
+#: inc/psr-types.php:121
+msgid "Project published."
+msgstr "Projekt veröffentlicht."
+
+#: inc/psr-types.php:122
+msgid "Project saved."
+msgstr "Projekt gespeichert."
+
+#: inc/psr-types.php:123
+msgid "Project draft updated."
+msgstr "Projekt Entwurf gespeichert."
+
+#: inc/psr-types.php:197
+msgid "Project name"
+msgstr "Projekt Name"

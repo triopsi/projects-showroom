@@ -65,5 +65,5 @@ require_once('inc/psr-shortcode.php');
  * @return void
  */
 function psr_load_plugin_textdomain() {
-    load_plugin_textdomain( 'psr', FALSE, basename(PSR_PATH.'/lang/') );
-  }
+    load_plugin_textdomain( 'psr', FALSE, basename(PSR_PATH).'/lang/' );
+}

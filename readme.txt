@@ -1,7 +1,7 @@
 === About Us Team ===
 Contributors: triopsi
 Donate link: https://www.paypal.me/triopsi
-Tags: shortcode, site, post, showroom, projects, project
+Tags: shortcode, site, post, showroom, projects, project, psr
 Requires at least: 5.3
 Tested up to: 5.3.2
 Requires PHP: 5.6
@@ -20,7 +20,8 @@ post or site.
  
 *   Create and manage projects
 *   filter the categories
-*   add informattion in the projetcbox
+*   add informattion in the projectbox
+*   jquery menue bar
 
 = Bugs, technical hints or contribute =
 
@@ -42,7 +43,9 @@ Nothing yet.
 == Screenshots ==
  
 1. Projects Showroom on site default layout
-4. Projects Settings
+2. Projekt Category
+3. Admin Page Project Site
+4. Option page
  
 == Changelog ==
  
