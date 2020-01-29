@@ -5,18 +5,18 @@
 * License: GPL3
 * License URI: https://www.gnu.org/licenses/gpl-3.0
 *
-* uebns is free software: you can redistribute it and/or modify
+* psr is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
 * the Free Software Foundation, either version 2 of the License, or
 * any later version.
 *  
-* uebns is distributed in the hope that it will be useful,
+* psr is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 * GNU General Public License for more details.
 *  
 * You should have received a copy of the GNU General Public License
-* along with uebns. If not, see https://www.gnu.org/licenses/gpl-3.0.
+* along with psr. If not, see https://www.gnu.org/licenses/gpl-3.0.
 **/
 
 /**
@@ -36,7 +36,7 @@ function psr_check_version() {
   add_action( 'admin_enqueue_scripts', 'add_admin_psr_style_js' );
   
   /**
-   * Undocumented function
+   * Add Style and JS in the Admin page
    *
    * @return void
    */
@@ -48,20 +48,22 @@ function psr_check_version() {
     if( 'psr' == $post_type ) {
   
       /* CSS */
-      wp_enqueue_style( 'psr-style', plugins_url('../assets/css/psr-style.css', __FILE__));
+      wp_enqueue_style( 'psr-admin-style', plugins_url('../assets/css/psr-admin-style.css', __FILE__));
   
       /* JS */
-      wp_enqueue_script( 'psr-script', plugins_url('../assets/js/psr-script.js', __FILE__), array( 'jquery' ) );
+      wp_enqueue_script( 'psr-admin-script', plugins_url('../assets/js/psr-admin-script.js', __FILE__), array( 'jquery' ) );
+
+      /* Localizes string for JS file. */
+      wp_localize_script( 'psr-admin-script', 'psrobjjs', array(
+        'no_title' => __( 'please set a project name', 'psr' ),
+        'no_image' => __( 'please set a featured image!', 'psr' ),
+      ));
       
+    }else{
+
+      /* Color JS */
+      wp_enqueue_script( 'psr-admin-script-color', plugins_url('../assets/js/psr-admin-script-color.js', __FILE__), array( 'jquery', 'wp-color-picker'  ) );
+
     }
   
-  }
-  
-  /**
-   * Update Version Number
-   *
-   * @return void
-   */
-  function psr_activation(){
-    update_option('psr_plugin_version', PSR_VERSION);
   }

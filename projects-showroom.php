@@ -11,18 +11,18 @@
 * License: GPL3
 * License URI: https://www.gnu.org/licenses/gpl-3.0
 *
-* uebns is free software: you can redistribute it and/or modify
+* psr is free software: you can redistribute it and/or modify
 * it under the terms of the GNU General Public License as published by
 * the Free Software Foundation, either version 2 of the License, or
 * any later version.
 *  
-* uebns is distributed in the hope that it will be useful,
+* psr is distributed in the hope that it will be useful,
 * but WITHOUT ANY WARRANTY; without even the implied warranty of
 * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 * GNU General Public License for more details.
 *  
 * You should have received a copy of the GNU General Public License
-* along with uebns. If not, see https://www.gnu.org/licenses/gpl-3.0.
+* along with psr. If not, see https://www.gnu.org/licenses/gpl-3.0.
 **/
 
 //Definie plugin version
@@ -44,9 +44,20 @@ require_once('inc/psr-admin.php');
 /* Types */
 require_once('inc/psr-types.php');
 
+/* Metaboxes */
+require_once('inc/psr-post-metabox.php');
+
+/* Menue */
+require_once('inc/psr-help.php');
+
+/* Admin Setting */
+require_once('inc/psr-settings.php');
+
+/* Front Scripts and Styles */
+require_once('inc/psr-user.php');
+
 /* Shortcode */
 require_once('inc/psr-shortcode.php');
-
 
 /**
  * Init Script. Load languages

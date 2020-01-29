@@ -1,0 +1,12 @@
+.projects_field_title{
+    font-size: 1em;
+    padding: 5px 0;
+    color:#555;
+    margin-top: 5px;
+    margin-bottom: 2px;
+    font-weight: 600;
+}
+
+input.projects-field{
+    width:100%;
+}
