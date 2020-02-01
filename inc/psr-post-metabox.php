@@ -92,7 +92,7 @@ function psr_save_meta_box_data( $post_id ) {
 		return;
     }
     
-    //Update postdata
-    $link_data = stripslashes_deep( $_POST['psr_info_link'] );
+	//Update postdata
+	$link_data = stripslashes( strip_tags( sanitize_text_field( $_POST['psr_info_link'] ) ) );
     update_post_meta( $post_id, '_psr_projetc_url', $link_data );
 }
