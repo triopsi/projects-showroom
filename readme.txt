@@ -1,4 +1,4 @@
-=== About Us Team ===
+=== Projects showroom ===
 Contributors: triopsi
 Donate link: https://www.paypal.me/triopsi
 Tags: shortcode, site, post, showroom, projects, project, psr
