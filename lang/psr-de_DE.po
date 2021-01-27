@@ -8,12 +8,12 @@ msgstr ""
 "Project-Id-Version: Projetcs Showroom\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-29 16:56+0100\n"
-"PO-Revision-Date: 2020-01-29 18:04+0100\n"
+"PO-Revision-Date: 2021-01-27 09:04+0100\n"
 "Language-Team: triopsi <info@triopsi.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.4\n"
+"X-Generator: Poedit 2.3.1\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 "Last-Translator: \n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -70,7 +70,7 @@ msgstr "Alle SHortcodes"
 
 #: inc/psr-help.php:79
 msgid "Project Showroom Shortcode. Show all projects and show the menue bar"
-msgstr "Projekt Showroom Shortcode. Zeige alle Projekte mit einem Menü."
+msgstr "Projekt Showroom Shortcode. Zeige alle Projekte mit einem Menü"
 
 #: inc/psr-help.php:80
 msgid "show projects from a category"
@@ -86,23 +86,23 @@ msgstr "Alle Shortcode Parameter"
 
 #: inc/psr-help.php:90
 msgid "Project link target. Value=_self or _blank, Default=_self"
-msgstr "Projekt Link Ziel. Value=_self or _blank, Standardmäßig=_self"
+msgstr "Projekt Link Ziel. Value=_self oder _blank, Standardmäßig=_self"
 
 #: inc/psr-help.php:91
 msgid "Show the project titel in the showcase. Value=true or false, Default=true"
-msgstr "Zeige die Überschrift des Projektes an. Value=true or false, Standardmäßig=true"
+msgstr "Zeige die Überschrift des Projektes an. Value=true oder false, Standardmäßig=true"
 
 #: inc/psr-help.php:92
 msgid "orderby the atribute of projects Value=date, ID, title, name or rand, Default=date"
-msgstr "Sortiere Projekte nach Eigenschaft. Value=date, ID, title, name or rand, Standardmäßig=date"
+msgstr "Sortiere Projekte nach Eigenschaft. Value=date, ID, title, name oder rand, Standardmäßig=date"
 
 #: inc/psr-help.php:93
 msgid "sort the project in ascending or descending order. Value=asc or desc, Default=ASC"
-msgstr "Sortiere die Projekte Auf oder Absteigend. Value=asc or desc, Standardmäßig=ASC"
+msgstr "Sortiere die Projekte Auf oder Absteigend. Value=asc oder desc, Standardmäßig=ASC"
 
 #: inc/psr-help.php:94
 msgid "show the menue bar. Value=true or false, Default=true"
-msgstr "Zeige das Menü.  Value=true or false, Standardmäßig=true"
+msgstr "Zeige das Menü.  Value=true oder false, Standardmäßig=true"
 
 #: inc/psr-help.php:101
 msgid "Need Support?"
@@ -138,11 +138,11 @@ msgstr "Farbschema"
 
 #: inc/psr-settings.php:46
 msgid "Choose a main color:"
-msgstr "Wähle eine Hauptfarbe aus."
+msgstr "Wähle eine Hauptfarbe aus:"
 
 #: inc/psr-settings.php:55
 msgid "Choose a main hover color:"
-msgstr "Wähle eine Hover Farbe aus. "
+msgstr "Wähle eine Hover Farbe aus.:"
 
 #: inc/psr-settings.php:74
 msgid "This color will use for the Titel, Menue bar and description."
@@ -158,11 +158,11 @@ msgstr "Einstellungen speichern"
 
 #: inc/psr-settings.php:155
 msgid "Debug information"
-msgstr ""
+msgstr "Debug Informationen"
 
 #: inc/psr-settings.php:156
-msgid "You are seeing this becpsre your WP_DEBUG variable is set to true."
-msgstr ""
+msgid "You are seeing this because your WP_DEBUG variable is set to true."
+msgstr "Du siehst diese Einstellungen, weil die WP_DEBU Variable auf true gesetzt worden ist."
 
 #: inc/psr-shortcode.php:128
 msgctxt "psr"
@@ -212,7 +212,7 @@ msgstr "Suche Projekte"
 
 #: inc/psr-types.php:44
 msgid "No Projects found."
-msgstr "Keine Projekte gefunden"
+msgstr "Keine Projekte gefunden."
 
 #: inc/psr-types.php:45
 msgid "No Projects found in Trash."
@@ -276,7 +276,7 @@ msgstr "Füge oder Lösche Kategorie"
 
 #: inc/psr-types.php:88
 msgid "Choose from the most used categories"
-msgstr "Wähle aus den meist benutzen Kategorien aus."
+msgstr "Wähle aus den meist benutzen Kategorien aus"
 
 #: inc/psr-types.php:89
 msgid "No category found."
@@ -305,3 +305,6 @@ msgstr "Projekt Entwurf gespeichert."
 #: inc/psr-types.php:197
 msgid "Project name"
 msgstr "Projekt Name"
+
+msgid "Projects Category"
+msgstr "Projekt Kategorien"

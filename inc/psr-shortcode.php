@@ -88,11 +88,15 @@ function psr_shortcode($atts) {
 
     // WP Query Parameters
 	$psr_query = new WP_Query($query_args);
-	$post_count = $psr_query->post_count;
+    $post_count = $psr_query->post_count;
+    
+    //Buffer Start
+    ob_start();
     
     //Style
     $main_color = get_option( 'psr_setting_main_color' , '#eb5466');
     $hover_color = get_option( 'psr_setting_main_color_hover' , '#ffffff');
+
     ?>
     <style>
         .showroom-project-sub-sub-description p a,
@@ -111,10 +115,12 @@ function psr_shortcode($atts) {
         }
 	</style>
     <?php
+
+    //Output Buffer and Clean Buffer
+    $o = ob_get_clean();
+
     //Empty team Sring
     $team_view = '';
-
-    ob_start();
 
     //show project
     if( $psr_query->have_posts() ) { 
@@ -127,7 +133,9 @@ function psr_shortcode($atts) {
                 <div class="showroom-projects">
                     <div class="psr-all-show-button psr-nav active" psr-data="all">'. _x('All','psr') .'</div>';
                     foreach ( $taxio_projects as $key => $taxo ){
-                        $team_view.='<div class="psr-pr1-show-button psr-nav" psr-data="'.$taxo.'">'.$taxo.'</div>';
+                        $orign = $taxo;
+                        $taxo = str_replace(' ', '-', $taxo);
+                        $team_view.='<div class="psr-pr1-show-button psr-nav" psr-data="'.$taxo.'">'.$orign.'</div>';
                     }
                 $team_view.='
                 </div>
@@ -154,6 +162,8 @@ function psr_shortcode($atts) {
                     $slug_css = $taxio[0];
                 }
 
+                $slug_css = str_replace(' ', '-', $slug_css);
+
                 $team_view.='
                     <div class="showroom-project '.$slug_css.'">
                         <div class="showrrom-thumbnail-image" style="background: url('.$feat_image.') center center/cover;">
@@ -177,6 +187,6 @@ function psr_shortcode($atts) {
         </div><!-- /.showroom -->';
     }
     wp_reset_postdata(); // Reset WP Query
-    return $team_view;
+    return $o.$team_view;
   
   }

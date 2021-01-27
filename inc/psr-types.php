@@ -73,34 +73,36 @@ function register_psr_type() {
 function register_psr_taxonomy() {
 
 	$labels = array(
-        'name'              			=> __( 'Categorie', 'psr' ),
-        'singular_name'     			=> __( 'Category', 'psr' ),
-        'search_items'      			=> __( 'Search categorie', 'psr' ),
-        'all_items'         			=> __( 'All categorie', 'psr' ),
+        'name'							=> __( 'Categorie', 'psr' ),
+        'singular_name'					=> __( 'Category', 'psr' ),
+        'search_items'					=> __( 'Search categorie', 'psr' ),
+        'all_items'						=> __( 'All categorie', 'psr' ),
 		'parent_item'					=> __( 'Parent Category', 'psr' ),
         'parent_item_colon'				=> __( 'Parent Category:', 'psr' ),
-        'edit_item'         			=> __( 'Edit Category', 'psr' ),
-        'update_item'       			=> __( 'Update Category', 'psr' ),
-		'add_new_item'      			=> __( 'Add New Category', 'psr' ),
-		'new_item_name'     			=> __( 'New Category Name', 'psr' ),
+        'edit_item'						=> __( 'Edit Category', 'psr' ),
+        'update_item'					=> __( 'Update Category', 'psr' ),
+		'add_new_item'					=> __( 'Add New Category', 'psr' ),
+		'new_item_name'					=> __( 'New Category Name', 'psr' ),
 		'separate_items_with_commas'	=> __( 'Separate categories with commas', 'psr' ),
-		'add_or_remove_items'        	=> __( 'Add or remove category', 'psr' ),
-        'choose_from_most_used'      	=> __( 'Choose from the most used categories', 'psr' ),
-        'not_found'                  	=> __( 'No category found.', 'psr' ),
-		'menu_name'         			=> __( 'Projects Category', 'psr' ),
+		'add_or_remove_items'			=> __( 'Add or remove category', 'psr' ),
+        'choose_from_most_used'			=> __( 'Choose from the most used categories', 'psr' ),
+        'not_found'						=> __( 'No category found.', 'psr' ),
+		'menu_name'						=> __( 'Projects Category', 'psr' ),
 	);
 	
     $args = array(
-		'hierarchical'  		=> true,
+		'hierarchical'  		=> false,
 		'labels'        		=> $labels,
 		'show_ui'               => true,
         'show_admin_column'     => true,
         'query_var'             => true,
-        'rewrite'               => false,
+		'rewrite'               => false,
+		'default_term'			=> array('description' => 'Default Term'),
     );
-    register_taxonomy( 'projects', array( 'psr' ), $args );
+	$taxomy=register_taxonomy( 'projects', array( 'psr' ), $args );
+	
 }
-add_action( 'init', 'register_psr_taxonomy', 0 );
+add_action( 'init', 'register_psr_taxonomy');
 
 /* Add update messages */
 add_filter( 'post_updated_messages', 'psr_updated_messages' );

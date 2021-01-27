@@ -153,7 +153,7 @@ function psr_options_page_html() {
         <?php if(WP_DEBUG){ ?>
             <div class="debug-info">
                 <h3><?php _e('Debug information','psr'); ?></h3>
-                <p><?php _e('You are seeing this becpsre your WP_DEBUG variable is set to true.','psr'); ?></p>
+                <p><?php _e('You are seeing this because your WP_DEBUG variable is set to true.','psr'); ?></p>
                 <pre>psr_plugin_version: <?php print_r(get_option( 'psr_plugin_version' )) ?></pre>
                 <pre>psr_setting_main_color: <?php print_r(get_option( 'psr_setting_main_color' )) ?></pre>
                 <pre>psr_setting_main_color_hover: <?php print_r(get_option( 'psr_setting_main_color_hover' )) ?></pre>
