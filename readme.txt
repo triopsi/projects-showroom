@@ -52,6 +52,8 @@ Nothing yet.
 = 0.0.2 =
 * wordpress fixe
 * support wordpress v5.6
+* translate fixe
+* gutenberg fix
 
 = 0.0.1 =
 * First release.

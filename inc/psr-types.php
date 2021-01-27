@@ -91,13 +91,12 @@ function register_psr_taxonomy() {
 	);
 	
     $args = array(
-		'hierarchical'  		=> false,
+		'hierarchical'  		=> true,
 		'labels'        		=> $labels,
 		'show_ui'               => true,
         'show_admin_column'     => true,
         'query_var'             => true,
-		'rewrite'               => false,
-		'default_term'			=> array('description' => 'Default Term'),
+		'rewrite'               => true,
     );
 	$taxomy=register_taxonomy( 'projects', array( 'psr' ), $args );
 	
@@ -125,16 +124,6 @@ function psr_updated_messages( $messages ) {
 		10 => __( 'Project draft updated.', 'psr' )
 	);
 	return $messages;
-}
-
-
-/**
-* Update Version Number
-*
-* @return void
-*/
-function psr_activation(){
-	update_option('psr_plugin_version', PSR_VERSION);
 }
 
 /**

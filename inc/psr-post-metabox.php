@@ -42,7 +42,14 @@ function psr_add_project_display(){
     global $post;
 	
 	//get post meta data
-	$projectsdetails = get_post_meta( $post->ID, '_psr_projetc_url', true);
+	// $projectsdetails = get_post_meta( $post->ID, '_psr_project_url', true);
+	$projecturlpageid = (int)get_post_meta( $post->ID, '_psr_project_url_page_id', true);
+	$projecturlpostid = (int)get_post_meta( $post->ID, '_psr_project_url_post_id', true);
+	$projecturllink = get_post_meta( $post->ID, '_psr_project_url_link', true);
+
+	$projecturlpageid = (empty($projecturlpageid))?0:$projecturlpageid;
+	$projecturlpostid = (empty($projecturlpostid))?0:$projecturlpostid;
+	$projecturllink = (empty($projecturllink))?'':$projecturllink;
 
 	/* GetIcon Array */
 	$social_links_options = getIconArrayList();
@@ -56,9 +63,54 @@ function psr_add_project_display(){
 		<div class="projects_field_title">
 			<?php echo __('More information URL','psr'); ?>
 		</div>
-		<input class="projects-field regular-text" name="psr_info_link" type="text" value="<?php echo esc_url( $projectsdetails ) ?>" placeholder="<?php echo __('e.g. https://example.com','psr'); ?>">
+		<div class="psr_field_title">
+			<?php echo __('Site','psr'); ?>
+		</div>
+		<?php
+		wp_dropdown_pages(array(
+			'selected' => $projecturlpageid,
+			'name'   => 'psr_info_url_page_id',
+			'show_option_none'  => __('Please Choose','psr'),
+			'option_none_value' => 0,
+			'hierarchical' => true,
+			'id'	=> 'infoLinkInputId',
+			'selected' => $projecturlpageid,
+			));
+		?>
+		<br>
+		<small> - <?= __('or','psr') ?> - </small>
+		<br>
+		<div class="psr_field_title">
+			<?php echo __('Post','psr'); ?>
+		</div>
+		<select name="psr_info_url_post_id" id="page_id">
+			<option value="0"><?php echo __('Please Choose','psr'); ?></option>
+			<?php
+			
+			global $post;
+			$args = array( 'numberposts' => -1);
+			$posts = get_posts($args);
+			foreach( $posts as $post ) : setup_postdata($post); 
+				if($projecturlpostid == $post->ID){
+				?>
+					<option value="<?= $post->ID; ?>" selected><?php the_title(); ?></option>
+				<?php
+				}else{ ?>
+				<option value="<?= $post->ID; ?>"><?php the_title(); ?></option>
+			<?php 
+				}
+			endforeach; 
+			?>
+		</select>
+		<br>
+		<small> - <?= __('or','psr') ?> - </small>
+		<br>
+		<div class="psr_field_title">
+			URL
+		</div>
+			<input class="psr-field regular-text" id="infoLinkInputLink" name="psr_info_url" type="text" value="<?php echo esc_url( $projecturllink ) ?>" placeholder="<?php echo __('e.g. https://example.com','psr'); ?>">
         </br>
-        <em>Display on the front.</em>
+        <em><?= __('Empty Value = No Link','psr') ?></em>
     </div><!-- ./member_field_firstname -->
 
 <?php
@@ -88,11 +140,33 @@ function psr_save_meta_box_data( $post_id ) {
 			return;
 		}
 	}
-	if ( ! isset( $_POST['psr_info_link'] ) ) {
-		return;
-    }
-    
-	//Update postdata
-	$link_data = stripslashes( strip_tags( sanitize_text_field( $_POST['psr_info_link'] ) ) );
-    update_post_meta( $post_id, '_psr_projetc_url', $link_data );
+
+	//Site Link
+	$project_url_page_id = stripslashes( strip_tags( sanitize_text_field( $_POST['psr_info_url_page_id'] ) ) );
+	$project_url_post_id = stripslashes( strip_tags( sanitize_text_field( $_POST['psr_info_url_post_id'] ) ) );
+	$project_url_link = stripslashes( strip_tags( sanitize_text_field( $_POST['psr_info_url'] ) ) );
+	
+	if($project_url_page_id != 0){
+		update_post_meta( $post_id, '_psr_project_url_page_id', $project_url_page_id );
+		update_post_meta( $post_id, '_psr_project_url_post_id', 0 );
+		update_post_meta( $post_id, '_psr_project_url_link', '' );
+	}
+	
+	if($project_url_post_id != 0){
+		update_post_meta( $post_id, '_psr_project_url_page_id', 0 );
+		update_post_meta( $post_id, '_psr_project_url_post_id', $project_url_post_id );
+		update_post_meta( $post_id, '_psr_project_url_link', '' );
+	}
+	
+	if(!empty($project_url_link)){
+		update_post_meta( $post_id, '_psr_project_url_page_id', 0 );
+		update_post_meta( $post_id, '_psr_project_url_post_id', 0 );
+		update_post_meta( $post_id, '_psr_project_url_link', $project_url_link );
+	}
+	
+	if($project_url_page_id==0 && $project_url_post_id==0 && empty($project_url_link)){
+		update_post_meta( $post_id, '_psr_project_url_page_id', 0 );
+		update_post_meta( $post_id, '_psr_project_url_post_id', 0 );
+		update_post_meta( $post_id, '_psr_project_url_link', '' );
+	}
 }

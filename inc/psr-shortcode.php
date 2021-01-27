@@ -145,10 +145,28 @@ function psr_shortcode($atts) {
             $team_view.='
             <div class="showroom-projetcs shr-flex">';
             while ($psr_query->have_posts()) : $psr_query->the_post();
+
+                //Get links
+                $project_url_page_id = (int)get_post_meta( $post->ID, '_psr_project_url_page_id', true );
+                $project_url_post_id = (int)get_post_meta( $post->ID, '_psr_project_url_post_id', true );
+                $project_url_link = get_post_meta( $post->ID, '_psr_project_url_link', true );
+
+                //Default url
+                $htmlurl='';
+
+                //Set the url
+                if($project_url_page_id !=0){
+                    $htmlurl=get_page_link($project_url_page_id);
+                }
+                if($project_url_post_id !=0){
+                    $htmlurl=get_page_link($project_url_page_id);
+                }
+                if($project_url_link !=''){
+                    $htmlurl=$project_url_link;
+                }
                         
                 $title_project = get_the_title();        
                 $feat_image = psr_get_logo_image( $post->ID, $image_size);
-                $project_url = get_post_meta( $post->ID, '_psr_projetc_url', true );
                 $taxio = wp_get_post_terms($post->ID, 'projects', array( 'fields' => 'names'));
 
                 if( is_array($taxio) && count($taxio) > 1 ){
@@ -174,8 +192,8 @@ function psr_shortcode($atts) {
                                 if(!empty($taxio)){
                                     $team_view.='<div class="showroom-project-sub-description"><p>'.$slug.'</p></div>';
                                 }
-                                if(!empty($project_url)){
-                                    $team_view.='<div class="showroom-project-sub-sub-description"><p><a target="'.$link_target.'" href="'.$project_url.'">'. _x('More information','psr') .'</a></p></div>';
+                                if(!empty($htmlurl)){
+                                    $team_view.='<div class="showroom-project-sub-sub-description"><p><a target="'.$link_target.'" href="'.$htmlurl.'">'. _x('More information','psr') .'</a></p></div>';
                                 }
                                 $team_view.='
                             </div>

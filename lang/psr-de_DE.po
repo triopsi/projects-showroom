@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Projetcs Showroom\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-01-29 16:56+0100\n"
-"PO-Revision-Date: 2021-01-27 09:04+0100\n"
+"PO-Revision-Date: 2021-01-27 11:14+0100\n"
 "Language-Team: triopsi <info@triopsi.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -304,7 +304,19 @@ msgstr "Projekt Entwurf gespeichert."
 
 #: inc/psr-types.php:197
 msgid "Project name"
-msgstr "Projekt Name"
+msgstr "Projektname"
 
 msgid "Projects Category"
 msgstr "Projekt Kategorien"
+
+msgid "or"
+msgstr "oder"
+
+msgid "Empty Value = No Link"
+msgstr "Leerer Wert = Kein Link"
+
+msgid "Please Choose"
+msgstr "Bitte wählen"
+
+msgid "Post"
+msgstr "Beitrag"

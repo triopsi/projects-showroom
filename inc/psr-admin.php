@@ -67,3 +67,12 @@ function psr_check_version() {
     }
   
   }
+
+/**
+* Update Version Number
+*
+* @return void
+*/
+function psr_activation(){
+  update_option('psr_plugin_version', PSR_VERSION);
+}
