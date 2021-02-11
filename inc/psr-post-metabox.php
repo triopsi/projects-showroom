@@ -78,7 +78,7 @@ function psr_add_project_display(){
 			));
 		?>
 		<br>
-		<small> - <?= __('or','psr') ?> - </small>
+		<small> - <?php echo __('or','psr') ?> - </small>
 		<br>
 		<div class="psr_field_title">
 			<?php echo __('Post','psr'); ?>
@@ -93,24 +93,24 @@ function psr_add_project_display(){
 			foreach( $posts as $post ) : setup_postdata($post); 
 				if($projecturlpostid == $post->ID){
 				?>
-					<option value="<?= $post->ID; ?>" selected><?php the_title(); ?></option>
+					<option value="<?php echo $post->ID; ?>" selected><?php the_title(); ?></option>
 				<?php
 				}else{ ?>
-				<option value="<?= $post->ID; ?>"><?php the_title(); ?></option>
+				<option value="<?php echo $post->ID; ?>"><?php the_title(); ?></option>
 			<?php 
 				}
 			endforeach; 
 			?>
 		</select>
 		<br>
-		<small> - <?= __('or','psr') ?> - </small>
+		<small> - <?php echo __('or','psr') ?> - </small>
 		<br>
 		<div class="psr_field_title">
 			URL
 		</div>
 			<input class="psr-field regular-text" id="infoLinkInputLink" name="psr_info_url" type="text" value="<?php echo esc_url( $projecturllink ) ?>" placeholder="<?php echo __('e.g. https://example.com','psr'); ?>">
         </br>
-        <em><?= __('Empty Value = No Link','psr') ?></em>
+        <em><?php echo __('Empty Value = No Link','psr') ?></em>
     </div><!-- ./member_field_firstname -->
 
 <?php

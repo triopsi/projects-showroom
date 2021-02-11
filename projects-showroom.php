@@ -3,7 +3,7 @@
 * Plugin Name: Projects Showroom
 * Plugin URI: https://www.wiki.profoxi.de
 * Description: A very simple showroom for your projects. Create projects and copy-paste the shortcode everywhere in your post or site.
-* Version: 0.0.2
+* Version: 1.0.0
 * Author: triopsi
 * Author URI: http://wiki.profoxi.de
 * Text Domain: psr
@@ -27,7 +27,7 @@
 
 //Definie plugin version
 if (!defined('PSR_VERSION'))
-    define('PSR_VERSION', '0.0.2');
+    define('PSR_VERSION', '1.0.0');
 
 /**
  * Define path

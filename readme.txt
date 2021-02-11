@@ -3,9 +3,9 @@ Contributors: triopsi
 Donate link: https://www.paypal.me/triopsi
 Tags: shortcode, site, post, showroom, projects, project, psr
 Requires at least: 5.3
-Tested up to: 5.6.0
+Tested up to: 5.6.1
 Requires PHP: 5.6
-Stable tag: 0.0.2
+Stable tag: 1.0.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0
  
@@ -48,6 +48,10 @@ Nothing yet.
 4. Option page
  
 == Changelog ==
+
+= 1.0.0 =
+* Mew version
+* php echo fix
 
 = 0.0.2 =
 * wordpress fixe
