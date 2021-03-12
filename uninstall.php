@@ -19,7 +19,6 @@
  * along with psr. If not, see https://www.gnu.org/licenses/gpl-3.0.
  *
  * @package psr
- *
  **/
 
 // if uninstall.php is not called by WordPress, die.
@@ -27,25 +26,26 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	die;
 }
 
-/* Delete plugin options */
-$option_version              = 'psr_plugin_version';
-$option_settings_main_color  = 'psr_setting_main_color';
-$option_settings_color_hover = 'psr_setting_main_color_hover';
+// Options.
+$plg_options = array(
+	'psr_plugin_version',
+	'psr_setting_main_color',
+	'psr_setting_main_color_hover',
+	'psr_setting_round_buttons_size',
+	'psr_setting_spacing',
+);
 
-delete_option( $option_version );
-delete_site_option( $option_version );
-
-delete_option( $option_settings_main_color );
-delete_site_option( $option_settings_main_color );
-
-delete_option( $option_settings_color_hover );
-delete_site_option( $option_settings_color_hover );
+// Delete options.
+foreach ( $plg_options as $plg_option ) {
+	delete_option( $plg_options );
+}
 
 // Delete metadata and posts.
-$post_type_arg   = array(
+$post_type_arg = array(
 	'post_type'      => 'psr',
 	'posts_per_page' => -1,
 );
+
 $getpostsentries = get_posts( $post_type_arg );
 foreach ( $getpostsentries as $delpost ) {
 	wp_delete_post( $delpost->ID, true );

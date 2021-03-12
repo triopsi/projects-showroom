@@ -24,6 +24,7 @@
 .showroom-project{
     display: inline-block;
     position: relative;
+    margin: 5px;
 }
 .showroom-navigation{
     width:100%;
@@ -31,18 +32,19 @@
     margin-bottom: 1em;
     padding: 5px;
     font-size: 1.2em;
-
 }
 
 .psr-nav {
     color: #616161;
     transition: ease 0.5s;
-    padding: 0 25px;
-    font-size: 1.2em;
+    padding: 5px 25px;
+    font-size: 1em;
     text-transform: uppercase;
     display: inline;
     margin-right: 15px;
     cursor: pointer;
+    background: #ebeaef;
+    border-radius: 5px;
 }
 
 .psr-nav.active{
@@ -94,14 +96,14 @@
 .showroom-project-sub-description p{
     font-size:1.2em;
     text-align: center;
-    color: #E31B6D;
+    color: #fff;
     padding:0px;
 
 }
 .showroom-project-sub-sub-description p a{
     font-size:0.9em;
     text-align: center;
-    color: #E31B6D;
+    color: #fff;
     padding:0px;
 }
 .showroom-project-sub-sub-description p a:hover{

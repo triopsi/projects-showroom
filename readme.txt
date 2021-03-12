@@ -5,7 +5,7 @@ Tags: shortcode, site, post, showroom, projects, project, psr
 Requires at least: 5.3
 Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0
  
@@ -48,6 +48,10 @@ Nothing yet.
 4. Option page
  
 == Changelog ==
+
+= 1.1.0 =
+* Smoother animation
+* add more options in the background
 
 = 1.0.1 =
 * Tested up WP 5.7

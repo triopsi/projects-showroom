@@ -19,7 +19,6 @@
  * along with psr. If not, see https://www.gnu.org/licenses/gpl-3.0.
  *
  * @package psr
- *
  **/
 
 /* Registers the teams post type. */
@@ -132,8 +131,8 @@ function psr_updated_messages( $messages ) {
 /**
  * Add info collumn function
  *
- * @param string $content
- * @param string $column_name
+ * @param string  $content
+ * @param string  $column_name
  * @param integer $term_id
  * @return string content
  */
@@ -167,7 +166,7 @@ add_filter( 'manage_edit-projects_columns', 'add_psr_tax_columns' );
 /**
  * Shortcodestyle function
  *
- * @param array $column
+ * @param array   $column
  * @param integer $post_id
  * @return void
  */
@@ -189,8 +188,8 @@ add_action( 'manage_psr_posts_custom_column', 'psr_custom_columns', 10, 2 );
 /**
  * AdminCollumnBar function
  *
- * @param array $columns
- * @return void
+ * @param array $columns Collumns.
+ * @return array columns.
  */
 function add_psr_columns( $columns ) {
 	$columns['title'] = __( 'Project name', 'psr' );
@@ -201,3 +200,13 @@ function add_psr_columns( $columns ) {
 
 /* Adds the shortcode column in the postslistbar */
 add_filter( 'manage_psr_posts_columns', 'add_psr_columns' );
+
+/**
+ * Registry new image size.
+ *
+ * @return void
+ */
+function psr_add_new_image_size() {
+	add_image_size( 'psr_project_image', 330, 245, true );
+}
+add_action( 'init', 'psr_add_new_image_size' );

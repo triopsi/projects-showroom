@@ -19,7 +19,6 @@
  * along with psr. If not, see https://www.gnu.org/licenses/gpl-3.0.
  *
  * @package psr
- *
  **/
 
 // Shortcode on the Page.
@@ -43,7 +42,7 @@ function psr_shortcode( $atts ) {
 			array(
 				'link_target'   => 'self',
 				'show_title'    => 'true',
-				'image_size'    => 'original',
+				'image_size'    => 'psr_project_image',
 				'orderby'       => 'date',
 				'order'         => 'ASC',
 				'projectname'   => '',
@@ -58,7 +57,7 @@ function psr_shortcode( $atts ) {
 	$cat           = ( ! empty( $cat ) ) ? explode( ',', $cat ) : '';
 	$projectname   = ! empty( $projectname ) ? $projectname : '';
 	$show_title    = ( $show_title == 'false' ) ? false : true;
-	$image_size    = ( ! empty( $image_size ) ) ? $image_size : 'original';
+	$image_size    = ( ! empty( $image_size ) ) ? $image_size : 'psr_project_image';
 	$order         = ( strtolower( $order ) === 'asc' ) ? 'ASC' : 'DESC';
 	$orderby       = ! empty( $orderby ) ? $orderby : 'date';
 	$show_menu_bar = ( $show_menu_bar == 'false' ) ? false : true;
@@ -100,20 +99,24 @@ function psr_shortcode( $atts ) {
 	);
 
 	// WP Query Parameters.
-	$psr_query  = new WP_Query( $query_args );
+	$psr_query = new WP_Query( $query_args );
 
 	// Buffer Start.
 	ob_start();
 
 	// Style.
-	$main_color  = get_option( 'psr_setting_main_color', '#eb5466' );
-	$hover_color = get_option( 'psr_setting_main_color_hover', '#ffffff' );
+	$main_color          = get_option( 'psr_setting_main_color', '#eb5466' );
+	$hover_color         = get_option( 'psr_setting_main_color_hover', '#ffffff' );
+	$rounded_button_size = get_option( 'psr_setting_round_buttons_size', 0 );
+	$project_spacing     = get_option( 'psr_setting_spacing', 5 );
 
 	?>
 	<style>
-		.showroom-project-sub-sub-description p a,
-		.showroom-project-sub-description p{
-			color:<?php echo esc_attr( $main_color ); ?>;
+		.psr-nav {
+			border-radius: <?php echo esc_attr( $rounded_button_size ); ?>px;
+		}
+		.showroom-project{
+			margin: <?php echo esc_attr( $project_spacing ); ?>px;
 		}
 		.showroom-project-sub-sub-description p a:hover{
 			color:<?php echo esc_attr( $hover_color ); ?>;
@@ -206,7 +209,7 @@ function psr_shortcode( $atts ) {
 				$team_view .= '<div class="showroom-project-sub-description"><p>' . $slug . '</p></div>';
 			}
 			if ( ! empty( $htmlurl ) ) {
-				$team_view .= '<div class="showroom-project-sub-sub-description"><p><a target="' . $link_target . '" href="' . $htmlurl . '">' . _x( 'More information', 'psr' ) . '</a></p></div>';
+				$team_view .= '<div class="showroom-project-sub-sub-description"><p><a target="' . $link_target . '" href="' . $htmlurl . '">' . esc_html_x( 'More information', 'psr' ) . '</a></p></div>';
 			}
 							$team_view .= '
                             </div>
